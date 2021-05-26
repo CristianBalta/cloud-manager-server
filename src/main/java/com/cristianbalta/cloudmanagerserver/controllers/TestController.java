@@ -1,4 +1,4 @@
-package com.cristianbalta.kubeengine.controllers;
+package com.cristianbalta.cloudmanagerserver.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

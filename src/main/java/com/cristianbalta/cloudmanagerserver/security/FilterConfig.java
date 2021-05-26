@@ -1,7 +1,7 @@
-package com.cristianbalta.kubeengine.security;
+package com.cristianbalta.cloudmanagerserver.security;
 
-import com.cristianbalta.kubeengine.jwt.JwtRequestFilter;
-import com.cristianbalta.kubeengine.jwt.JwtUtil;
+import com.cristianbalta.cloudmanagerserver.jwt.JwtRequestFilter;
+import com.cristianbalta.cloudmanagerserver.jwt.JwtUtil;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;

@@ -1,13 +1,13 @@
-package com.cristianbalta.kubeengine;
+package com.cristianbalta.cloudmanagerserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class KubeengineApplication {
+public class CloudManagerServer {
 
     public static void main(String[] args) {
-        SpringApplication.run(KubeengineApplication.class, args);
+        SpringApplication.run(CloudManagerServer.class, args);
     }
 
 }

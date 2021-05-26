@@ -1,4 +1,4 @@
-package com.cristianbalta.kubeengine.model;
+package com.cristianbalta.cloudmanagerserver.model;
 
 import java.util.Date;
 

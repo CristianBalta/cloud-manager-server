@@ -1,4 +1,4 @@
-package com.cristianbalta.kubeengine.security;
+package com.cristianbalta.cloudmanagerserver.security;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;

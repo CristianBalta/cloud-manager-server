@@ -1,6 +1,6 @@
-package com.cristianbalta.kubeengine.controllers;
+package com.cristianbalta.cloudmanagerserver.controllers;
 
-import com.cristianbalta.kubeengine.jwt.JwtUtil;
+import com.cristianbalta.cloudmanagerserver.jwt.JwtUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;

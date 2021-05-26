@@ -1,4 +1,4 @@
-package com.cristianbalta.kubeengine.jwt;
+package com.cristianbalta.cloudmanagerserver.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;

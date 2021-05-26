@@ -1,10 +1,10 @@
-package com.cristianbalta.kubeengine;
+package com.cristianbalta.cloudmanagerserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class KubeengineApplicationTests {
+class CloudManagerServerTests {
 
 	@Test
 	void contextLoads() {
