@@ -1,4 +1,4 @@
-package com.cristianbalta.cloudmanagerserver.controllers;
+package com.cristianbalta.cloudmanagerserver.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

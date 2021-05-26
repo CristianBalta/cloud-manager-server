@@ -1,27 +1,23 @@
 package com.cristianbalta.cloudmanagerserver.entity.compositekeys;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Embeddable
 public class UserWorkerLinkId implements Serializable {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull(message = "Worker id can't be blank.")
-    @Column(name = "worker_id")
-    Long workerId;
+    @Column(name = "worker_ip")
+    private String workerIp;
 
-    @NotNull(message = "User email can't be blank.")
     @Column(name = "user_email")
-    String userEmail;
+    private String userEmail;
 
-    public Long getWorkerId() {
-        return workerId;
+    public String getWorkerIp() {
+        return workerIp;
     }
 
-    public void setWorkerId(Long workerId) {
-        this.workerId = workerId;
+    public void setWorkerIp(String workerIp) {
+        this.workerIp = workerIp;
     }
 
     public String getUserEmail() {

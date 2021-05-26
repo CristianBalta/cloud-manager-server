@@ -4,26 +4,22 @@ import com.cristianbalta.cloudmanagerserver.entity.compositekeys.UserWorkerLinkI
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "workers")
-public class Worker {
+public class Worker implements Serializable {
 
     @EmbeddedId
     private UserWorkerLinkId userWorkerLinkId = new UserWorkerLinkId();
 
-    @ManyToOne
-    @MapsId("userEmail")
-    @JoinColumn(name = "user_email")
-    private User user;
-
-    @NotBlank(message = "Worker ip can't be blank.")
-    @Column(name = "worker_ip")
-    private String workerIp;
-
     @NotBlank(message = "Worker secret can't be blank.")
-    @Column(name = "woker_Secret")
+    @Column(name = "worker_secret")
     private String workerSecret;
+
+    @ManyToOne
+    @JoinColumn(name = "user_email", nullable = false, updatable = false, insertable = false)
+    private User user;
 
     public UserWorkerLinkId getUserWorkerLinkId() {
         return userWorkerLinkId;
@@ -33,27 +29,19 @@ public class Worker {
         this.userWorkerLinkId = userWorkerLinkId;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String getWorkerIp() {
-        return workerIp;
-    }
-
-    public void setWorkerIp(String workerIp) {
-        this.workerIp = workerIp;
-    }
-
     public String getWorkerSecret() {
         return workerSecret;
     }
 
     public void setWorkerSecret(String workerSecret) {
         this.workerSecret = workerSecret;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

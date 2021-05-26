@@ -1,7 +1,7 @@
 package com.cristianbalta.cloudmanagerserver.security;
 
-import com.cristianbalta.cloudmanagerserver.jwt.JwtRequestFilter;
-import com.cristianbalta.cloudmanagerserver.jwt.JwtUtil;
+import com.cristianbalta.cloudmanagerserver.security.jwt.JwtRequestFilter;
+import com.cristianbalta.cloudmanagerserver.security.jwt.JwtUtil;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;

@@ -1,4 +1,4 @@
-package com.cristianbalta.cloudmanagerserver.model;
+package com.cristianbalta.cloudmanagerserver.security.model;
 
 public class ErrorResponse {
 

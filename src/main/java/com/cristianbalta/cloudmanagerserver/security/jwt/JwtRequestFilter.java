@@ -1,6 +1,6 @@
-package com.cristianbalta.cloudmanagerserver.jwt;
+package com.cristianbalta.cloudmanagerserver.security.jwt;
 
-import com.cristianbalta.cloudmanagerserver.model.ErrorResponse;
+import com.cristianbalta.cloudmanagerserver.security.model.ErrorResponse;
 import com.google.gson.Gson;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

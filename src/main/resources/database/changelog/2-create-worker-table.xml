@@ -7,17 +7,14 @@
 
     <changeSet author="cristianbalta" id="changelog-1.0">
         <createTable tableName="workers">
-
-            <column name="worker_id" type="SERIAL">
-                <constraints nullable="false" primaryKey="true" unique="true" primaryKeyName="PK_WORKERS"/>
+            <column name="user_email" type="varchar(255)">
+                <constraints nullable="false" unique="false" primaryKey="true" primaryKeyName="pk_workers"/>
             </column>
-            <column name="user_email" type="VARCHAR(255)">
-                <constraints nullable="false" primaryKey="true" unique="true" primaryKeyName="PK_WORKERS"/>
+            <column name="worker_ip" type="varchar(255)">
+                <constraints nullable="false" uniqueConstraintName="worker_composite_key" primaryKey="true"
+                             primaryKeyName="pk_workers"/>
             </column>
-            <column name="worker_ip" type="VARCHAR(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="worker_secret" type="VARCHAR(255)">
+            <column name="worker_secret" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -30,6 +27,12 @@
                                  referencedColumnNames="user_email"
                                  referencedTableName="users"
                                  validate="true"/>
+
+        <addUniqueConstraint
+                columnNames="user_email, worker_ip"
+                constraintName="worker_composite_key"
+                tableName="workers"
+        />
     </changeSet>
 
 </databaseChangeLog>
