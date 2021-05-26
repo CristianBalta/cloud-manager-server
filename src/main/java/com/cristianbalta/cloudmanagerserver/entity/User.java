@@ -7,11 +7,11 @@ import javax.validation.constraints.NotBlank;
 @Table(name = "users")
 public class User {
 
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long userId;
 
+    @Id
     @NotBlank(message = "User email can't be blank.")
     @Column(name = "email")
     private String userEmail;

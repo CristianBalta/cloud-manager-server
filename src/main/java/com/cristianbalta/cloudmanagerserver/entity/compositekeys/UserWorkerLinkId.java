@@ -7,6 +7,7 @@ import java.io.Serializable;
 @Embeddable
 public class UserWorkerLinkId implements Serializable {
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull(message = "Worker id can't be blank.")
     @Column(name = "worker_id")
     Long workerId;
