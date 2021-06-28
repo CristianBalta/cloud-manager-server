@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="cristianbalta" id="changelog-1.0">
+        <createTable tableName="workers">
+            <column name="user_email" type="varchar(255)">
+                <constraints nullable="false" unique="false" primaryKey="true" primaryKeyName="pk_workers"/>
+            </column>
+            <column name="worker_ip" type="varchar(255)">
+                <constraints nullable="false" uniqueConstraintName="worker_composite_key" primaryKey="true"
+                             primaryKeyName="pk_workers"/>
+            </column>
+            <column name="worker_secret" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="user_email"
+                                 baseTableName="workers"
+                                 constraintName="fk_user_email"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="user_email"
+                                 referencedTableName="users"
+                                 validate="true"/>
+
+        <addUniqueConstraint
+                columnNames="user_email, worker_ip"
+                constraintName="worker_composite_key"
+                tableName="workers"
+        />
+    </changeSet>
+
+</databaseChangeLog>
