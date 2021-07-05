@@ -10,7 +10,7 @@ public class UserDto {
 
     private String userPassword;
 
-    private Set<WorkerDto> workerDtoSet;
+    private Set<String> workerIpSet;
 
     public Long getUserId() {
         return userId;
@@ -36,11 +36,11 @@ public class UserDto {
         this.userPassword = userPassword;
     }
 
-    public Set<WorkerDto> getWorkerDtoSet() {
-        return workerDtoSet;
+    public Set<String> getWorkerIpSet() {
+        return workerIpSet;
     }
 
-    public void setWorkerDtoSet(Set<WorkerDto> workerDtoSet) {
-        this.workerDtoSet = workerDtoSet;
+    public void setWorkerIpSet(Set<String> workerIpSet) {
+        this.workerIpSet = workerIpSet;
     }
 }

@@ -6,10 +6,6 @@ public class WorkerDto {
 
     private String userEmail;
 
-    private String workerSecret;
-
-    private UserDto userDto;
-
     public String getWorkerIp() {
         return workerIp;
     }
@@ -24,21 +20,5 @@ public class WorkerDto {
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
-    }
-
-    public String getWorkerSecret() {
-        return workerSecret;
-    }
-
-    public void setWorkerSecret(String workerSecret) {
-        this.workerSecret = workerSecret;
-    }
-
-    public UserDto getUserDto() {
-        return userDto;
-    }
-
-    public void setUserDto(UserDto userDto) {
-        this.userDto = userDto;
     }
 }

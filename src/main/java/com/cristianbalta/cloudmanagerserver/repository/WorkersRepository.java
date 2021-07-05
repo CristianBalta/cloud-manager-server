@@ -5,8 +5,11 @@ import com.cristianbalta.cloudmanagerserver.entity.compositekeys.UserWorkerLinkI
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Set;
+
 @Repository
 public interface WorkersRepository extends JpaRepository<Worker, UserWorkerLinkId> {
 
     Worker findByUserWorkerLinkId(UserWorkerLinkId userWorkerLinkId);
+    Set<Worker> findAllByUserWorkerLinkIdUserEmail(String userEmail);
 }

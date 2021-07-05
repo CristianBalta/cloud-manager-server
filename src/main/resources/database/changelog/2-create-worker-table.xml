@@ -14,9 +14,6 @@
                 <constraints nullable="false" uniqueConstraintName="worker_composite_key" primaryKey="true"
                              primaryKeyName="pk_workers"/>
             </column>
-            <column name="worker_secret" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
         </createTable>
 
         <addForeignKeyConstraint baseColumnNames="user_email"

@@ -33,7 +33,7 @@ public class JwtUtil {
     public String generateToken(String username) {
 
         return Jwts.builder().setSubject(username)
-                .signWith(SignatureAlgorithm.RS256, keyPair.getPrivate())
+                .signWith(SignatureAlgorithm.RS512, keyPair.getPrivate())
                 .setExpiration(Date.from(Instant.now().plus(10, ChronoUnit.HOURS)))
                 .compact();
     }

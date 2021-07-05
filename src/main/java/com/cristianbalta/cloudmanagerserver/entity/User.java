@@ -21,6 +21,10 @@ public class User implements Serializable {
     @Column(name = "user_password")
     private String userPassword;
 
+    @NotBlank(message = "User salt can't be blank.")
+    @Column(name = "user_salt")
+    private String userSalt;
+
     public Long getUserId() {
         return userId;
     }
@@ -43,5 +47,13 @@ public class User implements Serializable {
 
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
+    }
+
+    public String getUserSalt() {
+        return userSalt;
+    }
+
+    public void setUserSalt(String userSalt) {
+        this.userSalt = userSalt;
     }
 }

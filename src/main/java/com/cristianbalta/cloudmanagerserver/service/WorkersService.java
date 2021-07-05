@@ -7,6 +7,9 @@ import com.cristianbalta.cloudmanagerserver.entity.compositekeys.UserWorkerLinkI
 import com.cristianbalta.cloudmanagerserver.repository.WorkersRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+
 @Service
 public class WorkersService {
 
@@ -29,8 +32,14 @@ public class WorkersService {
         } else {
             worker = new Worker();
             worker.setUserWorkerLinkId(userWorkerLinkId);
-            worker.setWorkerSecret(workerDto.getWorkerSecret());
             workersRepository.save(worker);
         }
+    }
+
+    public Set<String> getWorkersByUserEmail(String userEmail) {
+        return workersRepository.findAllByUserWorkerLinkIdUserEmail(userEmail).
+                stream().map(Worker::getUserWorkerLinkId).
+                map(UserWorkerLinkId::getWorkerIp).
+                collect(Collectors.toSet());
     }
 }

@@ -16,6 +16,9 @@
             <column name="user_password" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="user_salt" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 </databaseChangeLog>
