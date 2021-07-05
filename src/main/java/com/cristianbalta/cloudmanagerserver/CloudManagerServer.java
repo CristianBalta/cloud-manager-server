@@ -9,5 +9,4 @@ public class CloudManagerServer {
     public static void main(String[] args) {
         SpringApplication.run(CloudManagerServer.class, args);
     }
-
 }

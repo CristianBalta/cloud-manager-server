@@ -3,22 +3,20 @@ package com.cristianbalta.cloudmanagerserver.service;
 import com.cristianbalta.cloudmanagerserver.dto.UserDto;
 import com.cristianbalta.cloudmanagerserver.dto.WorkerBearerDto;
 import com.cristianbalta.cloudmanagerserver.security.jwt.JwtUtil;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Collections;
 import java.util.Objects;
 
 @Service
-public class WorkerService {
+public class CloudWorkerService {
 
     private final RestTemplate restTemplate;
     private final UsersService usersService;
 
-    public WorkerService(RestTemplate restTemplate, UsersService usersService) {
+    public CloudWorkerService(RestTemplate restTemplate, UsersService usersService) {
         this.restTemplate = restTemplate;
         this.usersService = usersService;
     }
@@ -36,8 +34,25 @@ public class WorkerService {
                 WorkerBearerDto.class);
 
         if (!responseEntity.getStatusCode().equals(HttpStatus.OK)) {
-            throw new Exception("Worker already exists!");
+            throw new Exception("Worker not found!");
         }
-        return Objects.requireNonNull(responseEntity.getBody()).getWorkerBearerDto().get("bearerToken");
+
+        String bearerToken = Objects.requireNonNull(responseEntity.getBody()).getWorkerBearerDto().get("bearerToken");
+        usersService.saveUserWorkerBearer(userDto.getUserEmail(), bearerToken);
+
+        return bearerToken;
+    }
+
+    public String runCommand(String requestHeader, String workerIp, String command) throws Exception {
+
+        String userEmail = JwtUtil.extractUsernameFromHeader(requestHeader);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+        headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + usersService.getUserWorkerBearer(userEmail));
+
+        HttpEntity<String> entity = new HttpEntity<>(null, headers);
+
+        return restTemplate.exchange("http://" + workerIp + ":8081/api/cloud/" + command, HttpMethod.GET, entity, String.class).getBody();
     }
 }

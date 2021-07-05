@@ -10,6 +10,8 @@ public class UserDto {
 
     private String userPassword;
 
+    private String userWorkerBearerToken;
+
     private Set<String> workerIpSet;
 
     public Long getUserId() {
@@ -42,5 +44,13 @@ public class UserDto {
 
     public void setWorkerIpSet(Set<String> workerIpSet) {
         this.workerIpSet = workerIpSet;
+    }
+
+    public String getUserWorkerBearerToken() {
+        return userWorkerBearerToken;
+    }
+
+    public void setUserWorkerBearerToken(String userWorkerBearerToken) {
+        this.userWorkerBearerToken = userWorkerBearerToken;
     }
 }

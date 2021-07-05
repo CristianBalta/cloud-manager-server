@@ -7,6 +7,8 @@ import com.cristianbalta.cloudmanagerserver.security.util.HashingUtil;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class UsersService {
 
@@ -58,5 +60,15 @@ public class UsersService {
         } else {
             throw new Exception("User does not exist!");
         }
+    }
+
+    @Transactional
+    public void saveUserWorkerBearer(String userEmail, String bearerToken) {
+        usersRepository.saveNewBearer(bearerToken, userEmail);
+    }
+
+    public String getUserWorkerBearer(String userEmail) {
+        User user = usersRepository.findByUserEmail(userEmail);
+        return user.getUserWorkerBearerToken();
     }
 }

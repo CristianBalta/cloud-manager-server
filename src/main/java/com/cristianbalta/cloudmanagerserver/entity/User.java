@@ -25,6 +25,8 @@ public class User implements Serializable {
     @Column(name = "user_salt")
     private String userSalt;
 
+    private String userWorkerBearerToken;
+
     public Long getUserId() {
         return userId;
     }
@@ -55,5 +57,13 @@ public class User implements Serializable {
 
     public void setUserSalt(String userSalt) {
         this.userSalt = userSalt;
+    }
+
+    public String getUserWorkerBearerToken() {
+        return userWorkerBearerToken;
+    }
+
+    public void setUserWorkerBearerToken(String userWorkerBearerToken) {
+        this.userWorkerBearerToken = userWorkerBearerToken;
     }
 }

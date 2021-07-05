@@ -14,7 +14,7 @@ public class FilterConfig {
 
     @Bean
     public KeyPair keyPair() {
-        return Keys.keyPairFor(SignatureAlgorithm.RS512);
+        return Keys.keyPairFor(SignatureAlgorithm.RS256);
     }
 
     @Bean

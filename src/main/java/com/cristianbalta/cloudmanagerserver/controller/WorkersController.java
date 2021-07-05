@@ -8,12 +8,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Set;
+
 @RestController
 @RequestMapping("/api/workers")
 public class WorkersController {
 
     private final WorkersService workersService;
-
 
     public WorkersController(WorkersService workersService) {
         this.workersService = workersService;
@@ -31,5 +32,10 @@ public class WorkersController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<Set<String>> getWorkersByUserEmail(@RequestHeader(HttpHeaders.AUTHORIZATION) String authorizationHeader) throws Exception {
+        return ResponseEntity.ok(workersService.getWorkersByUserEmail(JwtUtil.extractUsernameFromHeader(authorizationHeader)));
     }
 }

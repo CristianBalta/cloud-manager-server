@@ -19,6 +19,9 @@
             <column name="user_salt" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="user_worker_bearer_token" type="text">
+                <constraints nullable="true"/>
+            </column>
         </createTable>
     </changeSet>
 </databaseChangeLog>

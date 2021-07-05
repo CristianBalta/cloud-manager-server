@@ -5,7 +5,6 @@ plugins {
 }
 
 group = 'com.cristianbalta'
-version = '0.0.1'
 
 repositories {
     mavenCentral()
@@ -23,6 +22,8 @@ dependencies {
 
     compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
     compile group: 'com.google.cloud.sql', name: 'postgres-socket-factory', version: '1.1.0'
+
+    compileOnly group: 'javax', name: 'javaee-api', version: '8.0'
 
     runtimeOnly 'org.postgresql:postgresql'
 
